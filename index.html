@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu - Pondok Pesantren Daarul Ahibbah</title>
+
+<style>
+body{
+margin:0;font-family:Arial,sans-serif;background:#fdfdfd;color:#222;scroll-behavior:smooth;
+}
+
+/* header */
+header{
+position:sticky;top:0;background:#fff;
+display:flex;justify-content:space-between;align-items:center;
+padding:15px 30px;box-shadow:0 2px 8px rgba(0,0,0,0.1);
+z-index:100;
+}
+header.scrolled{background:#f0f0f0;}
+.logo{display:flex;align-items:center;gap:10px;font-weight:bold;}
+.logo img{height:40px;transition: transform 0.3s ease;}
+.logo img:hover{transform: scale(1.1);}
+.home-btn{font-size:28px;color:#333;text-decoration:none;transition: transform 0.3s;}
+.home-btn:hover{transform: scale(1.2);}
+
+/* main menu grid */
+.main-menu{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:25px;
+padding:50px 30px;
+opacity:0;transform: translateY(30px);transition:1s ease;
+}
+.main-menu.show{opacity:1;transform: translateY(0);}
+
+/* menu button */
+.menu-card{
+background:#0f3d2e;color:white;text-align:center;padding:30px 20px;
+border-radius:15px;font-size:20px;font-weight:bold;text-decoration:none;
+display:flex;align-items:center;justify-content:center;
+height:120px;
+transition: transform 0.3s, box-shadow 0.3s;
+}
+.menu-card:hover{transform: scale(1.05);box-shadow:0 5px 15px rgba(0,0,0,0.2);}
+.menu-card span{pointer-events:none;}
+
+/* footer */
+footer{background:#f8f8f8;color:#222;padding:40px 20px;text-align:center;font-size:14px;border-top:1px solid #ddd;}
+footer a{color:#0f3d2e;text-decoration:none;}
+.admin{margin-top:15px;opacity:0.8;font-size:13px;}
+</style>
+</head>
+
+<body>
+
+<header id="header">
+<div class="logo">
+<img src="img/logo.png" alt="Logo">
+<span>Daarul Ahibbah</span>
+</div>
+<a class="home-btn" href="/"><!-- back home -->
+⇦ Home</a>
+</header>
+
+<main>
+<div class="main-menu" id="mainMenu">
+<a class="menu-card" href="/menu/about/"><span>About</span></a>
+<a class="menu-card" href="/menu/program/"><span>Program</span></a>
+<a class="menu-card" href="https://linktr.ee/ppda" target="_blank"><span>News</span></a>
+<a class="menu-card" href="/menu/psbp/"><span>PSBP</span></a>
+<a class="menu-card" href="/menu/contact/"><span>Contact</span></a>
+</div>
+</main>
+
+<footer>
+<p>Pondok Pesantren Daarul Ahibbah</p>
+<p>Kp. Ciguha Ds. Carenang Kec. Carenang Kab. Serang - Banten</p>
+<div class="admin">
+Admin:<br>
+Mg Nazril (0831-4666-3437)<br>
+Mg Faiz (0852-6999-0403)
+</div>
+<p>© 2026 Daarul Ahibbah</p>
+</footer>
+
+<script>
+// header scroll
+const header = document.getElementById('header');
+window.addEventListener('scroll',()=>{
+if(window.scrollY>50){header.classList.add('scrolled');}
+else{header.classList.remove('scrolled');}
+});
+
+// animate main menu
+const mainMenu = document.getElementById('mainMenu');
+window.addEventListener('load',()=>{setTimeout(()=>{mainMenu.classList.add('show');},200);});
+</script>
+
+</body>
+</html>
